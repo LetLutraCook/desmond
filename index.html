@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+  <title>desmond</title>
+</head>
+  <body>
+    <desmond-player id="player"></desmond-player>
+    <label for="myfile">Select a ROM:</label>
+    <input type="file" id="rom" name="rom">
+    <script src="https://cdn.jsdelivr.net/gh/Unzor/desmond/cdn/desmond.min.js"></script>
+    <script>
+      document.getElementById("player").loadURL("path-to-game.nds");
+    </script>
+  </body>
+</html>
