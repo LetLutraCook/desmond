@@ -7,21 +7,7 @@
 </head>
 <body>
   <desmond-player id="player"></desmond-player>
-  <label for="rom">Select a ROM:</label>
-  <input type="file" id="rom">
-
   <script src="https://cdn.jsdelivr.net/gh/Unzor/desmond/cdn/desmond.min.js"></script>
-  <script>
-    const rom = document.getElementById("rom");
-    const player = document.getElementById("player");
-
-    rom.onchange = function() {
-      if (rom.files.length > 0) {
-        const file = rom.files[0];
-        const url = URL.createObjectURL(file);
-        player.loadURL(url);
-      }
-    };
-  </script>
+  <script>document.getElementById("player").loadURL("rom.nds");</script>
 </body>
 </html>
