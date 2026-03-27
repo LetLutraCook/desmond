@@ -1,25 +1,25 @@
 <!DOCTYPE html>
+<html>
 <head>
-    <title>desmond</title>
+  <title>desmond</title>
 </head>
 <body>
   <desmond-player id="player"></desmond-player>
-    
   <label for="rom">Select a ROM:</label>
-  <input type="file" id="rom" name="rom">
+  <input type="file" id="rom">
 
   <script src="https://cdn.jsdelivr.net/gh/Unzor/desmond/cdn/desmond.min.js"></script>
   <script>
-      const file = document.getElementById("rom");
-      const player = document.getElementById("player");
+    const rom = document.getElementById("rom");
+    const player = document.getElementById("player");
 
-      file.addEventListener("change", (event) => {
-          const rom = event.target.files[0];
-          if (rom) {
-              const blobUrl = URL.createObjectURL(file);
-              player.loadURL(blobUrl);
-          }
-      });
+    rom.onchange = function() {
+      if (rom.files.length > 0) {
+        const file = rom.files[0];
+        const url = URL.createObjectURL(file);
+        player.loadURL(url);
+      }
+    };
   </script>
 </body>
 </html>
