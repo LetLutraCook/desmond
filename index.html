@@ -5,10 +5,19 @@
   <body>
     <desmond-player id="player"></desmond-player>
     <label for="myfile">Select a ROM:</label>
-    <input type="file" id="rom" name="rom">
+    <input type="file" id="rom" name="rom" accept=".nds">
     <script src="https://cdn.jsdelivr.net/gh/Unzor/desmond/cdn/desmond.min.js"></script>
     <script>
-      document.getElementById("player").loadURL("path-to-game.nds");
+      const input = document.getElementById("rom");
+      const player = document.getElementById("player");
+
+      input.addEventListener("change", (event) => {
+        const rom = event.target.files[0];
+          if (rom) {
+              const blobUrl = URL.createObjectURL(file);
+              player.loadURL(blobUrl);
+          }
+      });
     </script>
   </body>
 </html>
